@@ -3,7 +3,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public int coinValue = 1; // Value of the coin
-    public float hoverSpeed = 1f; // Speed of the hovering motion
+    public float hoverSpeed = 2f; // Speed of the hovering motion
     public float hoverHeight = 0.2f; // Height of the hovering motion
 
     private Vector3 startPosition;
