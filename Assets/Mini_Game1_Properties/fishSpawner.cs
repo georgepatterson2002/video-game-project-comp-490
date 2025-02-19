@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FishSpawner : MonoBehaviour
 {
-    public GameObject FishPrefab;  // Reference to the fish prefab
+    public GameObject fishPrefab;  // Reference to the fish prefab
     public float spawnDelay = 2f;  // Delay between spawning fish
     public Vector2 spawnAreaMin = new Vector2(-5f, -3f); 
     public Vector2 spawnAreaMax = new Vector2(5f, 3f);
@@ -20,7 +20,7 @@ public class FishSpawner : MonoBehaviour
                                              Random.Range(spawnAreaMin.y, spawnAreaMax.y));
 
         // Start the fish at the random position
-        Instantiate(FishPrefab, spawnPosition, Quaternion.identity);
+        Instantiate(fishPrefab, spawnPosition, Quaternion.identity);
 
     }
 }
