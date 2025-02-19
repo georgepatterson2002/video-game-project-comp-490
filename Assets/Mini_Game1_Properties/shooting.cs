@@ -3,11 +3,10 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public Camera mainCamera;
-    public GameScore gameScore; // Reference to the GameScore script
+    public GameScore gameScore; // Removed the extra text here
 
     void Update()
     {
-        // Check if the player presses the left mouse button (shooting)
         if (Input.GetMouseButtonDown(0)) // Left Click to shoot
         {
             Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -21,7 +20,6 @@ public class Shooting : MonoBehaviour
                     // Add 10 points to the score when hitting a fish
                     gameScore.AddScore(10); 
 
-                    // Optionally, destroy the fish object
                     Destroy(hit.collider.gameObject); // Destroy the fish
                 }
                 else
