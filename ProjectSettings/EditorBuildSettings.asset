@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGameOnePond.unity
     guid: 4c1b25d7a12d24c2db4e0f7d5344772c
+  - enabled: 1
+    path: Assets/Scenes/Mini_Game1.unity
+    guid: 62d5d2456db983741b89185a93c5b6c9
   m_configObjects: {}
