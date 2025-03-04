@@ -15,9 +15,10 @@ public class FishSpawner : MonoBehaviour
 
     void SpawnFish()
     {
-        // Random spawn area
-        Vector2 spawnPosition = new Vector2(Random.Range(spawnAreaMin.x, spawnAreaMax.x), 
-                                             Random.Range(spawnAreaMin.y, spawnAreaMax.y));
+           // Random spawn
+        Vector3 spawnPosition = new Vector3(Random.Range(spawnAreaMin.x, spawnAreaMax.x),
+                                       Random.Range(spawnAreaMin.y, spawnAreaMax.y),
+                                       -1f); // Move forward in the Z-axis
 
         // Start the fish at the random position
         Instantiate(fishPrefab, spawnPosition, Quaternion.identity);
