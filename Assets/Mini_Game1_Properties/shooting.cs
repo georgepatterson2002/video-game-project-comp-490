@@ -3,13 +3,12 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public Camera mainCamera;
-    public GameScore gameScore; 
+    public GameScore gameScore;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) 
         {
-
             //Debug.Log("Click Detected");
 
             Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
