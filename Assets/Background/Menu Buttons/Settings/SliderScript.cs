@@ -9,7 +9,7 @@ public class SliderScript : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     // Reference to the bar's RectTransform (parent container)
     public RectTransform barRect;
 
-    // Optional: Reference to the AudioSource to adjust volume (if you add music later)
+    // Optional: Reference to the AudioSource to adjust volume
     public AudioSource audioSource;
 
     // Variables to store pointer offset data
