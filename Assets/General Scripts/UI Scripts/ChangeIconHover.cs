@@ -98,7 +98,7 @@ public class ChangeIconHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
     /// No Functionality Yet
     public void Settings()
     {
-        SceneManager.LoadScene();
+        SceneManager.LoadScene(1);
     }
 
     /// Quits the game.
