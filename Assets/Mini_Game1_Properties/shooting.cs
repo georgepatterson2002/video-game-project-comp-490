@@ -23,6 +23,10 @@ public class Shooting : MonoBehaviour
                     gameScore.AddScore(10); 
                     Destroy(hit.collider.gameObject); 
                 }
+                if (hit.collider.CompareTag("BadFish"))
+                {
+                    Destroy(hit.collider.gameObject); 
+                }
             }
         }
     }
