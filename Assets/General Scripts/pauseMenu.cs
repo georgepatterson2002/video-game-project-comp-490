@@ -3,14 +3,28 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [Header("Pause Menu UI Panel")]
     public GameObject pauseMenuUI;
+    public GameObject player;
 
     private bool isPaused = false;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     void Update()
     {
-        // Check for Escape key to toggle pause/resume
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -20,7 +34,6 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    // Call this to pause the game
     public void PauseGame()
     {
         if (pauseMenuUI == null)
@@ -29,12 +42,13 @@ public class PauseMenu : MonoBehaviour
             return;
         }
 
-        pauseMenuUI.SetActive(true);   // Show pause menu
-        Time.timeScale = 0f;           // Pauses game time
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
         isPaused = true;
+
+       
     }
 
-    // Call this to resume the game
     public void ResumeGame()
     {
         if (pauseMenuUI == null)
@@ -43,27 +57,65 @@ public class PauseMenu : MonoBehaviour
             return;
         }
 
-        pauseMenuUI.SetActive(false);  // Hide pause menu
-        Time.timeScale = 1f;           // Resumes game time
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
         isPaused = false;
+
+       
     }
 
-    // Go back to the main menu
     public void QuitToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");  // Hardcode the scene name here
-    }
+        Time.timeScale = 1f;
+        isPaused = false;
 
-    // Quit the game
+        if (pauseMenuUI != null)
+        {
+            pauseMenuUI.SetActive(false);
+        }
+
+        // Destroy this PauseMenu so the main menu scene doesn't have leftovers
+        Destroy(gameObject);
+
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void HomeMainMenu(){
+        Time.timeScale =1f;
+        isPaused = false;
+        if(pauseMenuUI != null){
+            pauseMenuUI.SetActive(false);
+        }
+         Destroy(gameObject);
+
+        SceneManager.LoadScene("MainMap");
+    }
+    
+
     public void QuitGame()
     {
+        Debug.Log("Quitting game...");
         Application.Quit();
     }
 
-    // Link the specific pause menu UI panel (called when switching scenes)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene Loaded: " + scene.name);
+
+        Time.timeScale = 1f;
+        isPaused = false;
+
+        // Re-assign player if there's one in the new scene
+        player = GameObject.FindWithTag("Player");
+
+        if (pauseMenuUI != null)
+        {
+            pauseMenuUI.SetActive(false);
+        }
+    }
+
     public void SetPauseMenuUI(GameObject panel)
     {
         pauseMenuUI = panel;
-        ResumeGame(); // Ensure game isn't paused when switching scenes
+        ResumeGame();
     }
 }
