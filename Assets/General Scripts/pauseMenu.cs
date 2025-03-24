@@ -49,9 +49,9 @@ public class PauseMenu : MonoBehaviour
     }
 
     // Go back to the main menu
-    public void QuitToMainMenu(string mainMenuSceneName)
+    public void QuitToMainMenu()
     {
-        SceneManager.LoadScene(mainMenuSceneName);
+        SceneManager.LoadScene("MainMenu");  // Hardcode the scene name here
     }
 
     // Quit the game
