@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartPromptTriggerToMiniGame1 : MonoBehaviour
+public class StartPromptTriggerMiniGame2 : MonoBehaviour
 {
     public GameObject startPromptCanvas; 
     private bool isPlayerInArea = false; 
@@ -22,8 +22,7 @@ public class StartPromptTriggerToMiniGame1 : MonoBehaviour
         {
             // Enter code to start the game
             Debug.Log("Game Starting...");
-            SceneManager.LoadScene("Mini_Game1");
-
+            SceneManager.LoadScene("Mini_Game2");
         }
     }
 
