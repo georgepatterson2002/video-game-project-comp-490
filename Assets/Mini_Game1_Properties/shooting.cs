@@ -25,6 +25,7 @@ public class Shooting : MonoBehaviour
                 }
                 if (hit.collider.CompareTag("BadFish"))
                 {
+                    gameScore.LoseLife(1);
                     Destroy(hit.collider.gameObject); 
                 }
             }
