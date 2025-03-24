@@ -3,7 +3,8 @@ using UnityEngine.UI;  // Use TMPro instead if needed
 
 public class FishSpawner : MonoBehaviour
 {
-    public GameObject fishPrefab;
+    public GameObject FishPrefab;  // Good Fish Prefab
+    public GameObject badFishPrefab;   // Bad Fish Prefab
     public float spawnDelay = 2f;
 
     public Vector2 spawnAreaMin = new Vector2(-5f, -3f);
@@ -16,20 +17,17 @@ public class FishSpawner : MonoBehaviour
 
     void Start()
     {
-        // Start the countdown process
         StartCoroutine(StartCountdown());
     }
 
     System.Collections.IEnumerator StartCountdown()
     {
-        // Freeze everything
         Time.timeScale = 0f;
 
         if (countdownText != null)
         {
             countdownText.gameObject.SetActive(true);
         }
-
 
         float countdownTime = 3f;
 
@@ -38,13 +36,11 @@ public class FishSpawner : MonoBehaviour
             if (countdownText != null)
                 countdownText.text = Mathf.Ceil(countdownTime).ToString();
 
-            // Wait in unscaled time because we froze Time.timeScale
             yield return new WaitForSecondsRealtime(1f);
 
             countdownTime -= 1f;
         }
 
-        // Show "Go!" for a moment
         if (countdownText != null)
         {
             countdownText.text = "Go!";
@@ -52,22 +48,23 @@ public class FishSpawner : MonoBehaviour
             countdownText.gameObject.SetActive(false);
         }
 
-        // Resume everything
         Time.timeScale = 1f;
         countdownActive = false;
 
-        // Start spawning fish after countdown
         InvokeRepeating("SpawnFish", 0f, spawnDelay);
     }
 
     void SpawnFish()
     {
-        if (countdownActive) return;  // Safety check
+        if (countdownActive) return;
 
         Vector3 spawnPosition = new Vector3(Random.Range(spawnAreaMin.x, spawnAreaMax.x),
                                             Random.Range(spawnAreaMin.y, spawnAreaMax.y),
                                             -1f);
 
-        Instantiate(fishPrefab, spawnPosition, Quaternion.identity);
+        // Randomly choose between good fish and bad fish (50/50 chance)
+        GameObject fishToSpawn = (Random.value < 0.5f) ? FishPrefab : badFishPrefab;
+
+        Instantiate(fishToSpawn, spawnPosition, Quaternion.identity);
     }
 }

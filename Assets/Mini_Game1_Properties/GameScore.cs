@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameScore : MonoBehaviour
 {
@@ -28,7 +29,9 @@ public class GameScore : MonoBehaviour
 
         if (lives <= 0)
         {
+            SceneManager.LoadScene("YouLost");
             Debug.Log("Game Over!");
+
             // You can add game over logic here later
         }
     }

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGame2/Mini_Game2.unity
     guid: ad12b7ae01efc164cb59d87e4b8165a4
+  - enabled: 1
+    path: Assets/Scenes/YouLost.unity
+    guid: 18cc69bf86f543a48b158df6233c2aee
   m_configObjects: {}
