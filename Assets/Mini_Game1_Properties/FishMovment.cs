@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FishMovement : MonoBehaviour
 {
-    public float moveSpeed = 0.5f;           // Speed of horizontal movement
+    public float moveSpeed = 1f;           // Speed of horizontal movement
     public float moveDistance = 10f;        // How far the fish will move before disappearing
 
     public float minX = -5f, maxX = 5f;
