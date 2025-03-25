@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 388562040}
+  player: {fileID: 0}
 --- !u!4 &83980596
 Transform:
   m_ObjectHideFlags: 0
@@ -997,7 +998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &388562041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,7 +1174,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 391dcfd7196819f47b7b193e47ccc830, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1dbb88fd6541495eb7d0cb5baf603c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3254,7 +3255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3d68e3f27290ce54292abcf00cea6038, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 996e7163af8f94cefb9c62fbe7d4045f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
