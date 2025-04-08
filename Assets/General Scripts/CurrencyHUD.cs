@@ -3,8 +3,18 @@ using TMPro;
 
 public class CurrencyHUD : MonoBehaviour
 {
+    public static CurrencyHUD instance;
+
     public int currencyAmount = 0; // Initial amount of currency
     public TextMeshProUGUI currencyText; // Reference to the Text component
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     void Start()
     {
@@ -27,4 +37,5 @@ public class CurrencyHUD : MonoBehaviour
     {
         currencyText.text = currencyAmount.ToString();
     }
+
 }
