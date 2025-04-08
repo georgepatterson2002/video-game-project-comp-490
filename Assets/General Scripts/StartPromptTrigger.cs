@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartPromptTrigger : MonoBehaviour
 {
     public GameObject startPromptCanvas; 
-    private bool isPlayerInArea = false; 
+    private bool isPlayerInArea = false;
+    [SerializeField] private int _minigameSceneNumber;
 
     private void Start()
     {
@@ -21,6 +23,7 @@ public class StartPromptTrigger : MonoBehaviour
         {
             // Enter code to start the game
             Debug.Log("Game Starting...");
+            SceneManager.LoadScene(_minigameSceneNumber);
         }
     }
 
