@@ -25,6 +25,8 @@ public class PlayerControl : MonoBehaviour
 
         animator = GetComponent<Animator>();
         animator.Play(idle_animation);
+
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     // Update is called once per frame
