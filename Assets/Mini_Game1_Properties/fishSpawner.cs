@@ -11,6 +11,7 @@ public class FishSpawner : MonoBehaviour
     public Vector2 spawnAreaMax = new Vector2(5f, 3f);
 
     public Text countdownText;  // Drag your UI Text (or TMP_Text)
+    public Image countdownFrame;
     public GameObject player;   // Drag your Player here (optional, for disabling shooting/movement)
 
     private bool countdownActive = true;
@@ -46,6 +47,7 @@ public class FishSpawner : MonoBehaviour
             countdownText.text = "Go!";
             yield return new WaitForSecondsRealtime(1f);
             countdownText.gameObject.SetActive(false);
+            countdownFrame.gameObject.SetActive(false);
         }
 
         Time.timeScale = 1f;
