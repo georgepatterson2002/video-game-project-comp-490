@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public int score = 0;
-    public Text scoreText; // If using TextMeshPro use TMP_Text instead
+    public Text scoreText;
+
+    private float lastScoreTime = -Mathf.Infinity;
+    public float scoreCooldown = 0.75f; // in seconds
 
     void Start()
     {
@@ -15,8 +18,13 @@ public class ScoreManager : MonoBehaviour
 
     public void AddPoint()
     {
-        score++;
-        UpdateScoreText();
+        // Only allow scoring if cooldown has passed
+        if (Time.time - lastScoreTime >= scoreCooldown)
+        {
+            score+= 10;
+            lastScoreTime = Time.time;
+            UpdateScoreText();
+        }
     }
 
     void UpdateScoreText()
