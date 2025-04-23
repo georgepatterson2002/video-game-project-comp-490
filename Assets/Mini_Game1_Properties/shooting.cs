@@ -15,19 +15,22 @@ public class Shooting : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); // Raycast to detect what the mouse is pointing at
 
 
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.CompareTag("Fish"))
             {
-                   
-                if (hit.collider.CompareTag("Fish"))
-                {
-                    gameScore.AddScore(10); 
-                    Destroy(hit.collider.gameObject); 
-                }
-                if (hit.collider.CompareTag("BadFish"))
-                {
-                    gameScore.LoseLife(1);
-                    Destroy(hit.collider.gameObject); 
-                }
+
+                gameScore.AddScore(10);
+                Destroy(hit.collider.gameObject);
+
+                
+            }
+            else if (hit.collider != null && hit.collider.CompareTag("BadFish"))
+            {
+                gameScore.LoseLife(1);
+                Destroy(hit.collider.gameObject);
+            }
+            else
+            {
+                gameScore.LoseLife(1);
             }
         }
     }

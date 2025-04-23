@@ -5,6 +5,8 @@ public class FishSpawner : MonoBehaviour
 {
     public GameObject FishPrefab;  // Good Fish Prefab
     public GameObject badFishPrefab;   // Bad Fish Prefab
+    public GameObject gun;
+    public GameObject player;
     public float spawnDelay = 2f;
 
     public Vector2 spawnAreaMin = new Vector2(-5f, -3f);
@@ -12,13 +14,14 @@ public class FishSpawner : MonoBehaviour
 
     public Text countdownText;  // Drag your UI Text (or TMP_Text)
     public Image countdownFrame;
-    public GameObject player;   // Drag your Player here (optional, for disabling shooting/movement)
 
-    private bool countdownActive = true;
+    public bool countdownActive = true;
 
     void Start()
     {
+
         StartCoroutine(StartCountdown());
+        gun.gameObject.SetActive(false);
     }
 
     System.Collections.IEnumerator StartCountdown()
@@ -52,6 +55,7 @@ public class FishSpawner : MonoBehaviour
 
         Time.timeScale = 1f;
         countdownActive = false;
+        gun.gameObject.SetActive(true);
 
         InvokeRepeating("SpawnFish", 0f, spawnDelay);
     }

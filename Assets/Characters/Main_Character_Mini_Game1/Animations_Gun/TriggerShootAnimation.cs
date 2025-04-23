@@ -5,6 +5,9 @@ using UnityEngine;
 public class TriggerShootAnimation : MonoBehaviour
 {
     private Animator animator;
+    public FishSpawner fishSpawner;
+
+    private bool countdownOver = false;
 
     void Start()
     {
@@ -14,7 +17,12 @@ public class TriggerShootAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(fishSpawner.countdownActive == false)
+        {
+            countdownOver = true;
+        }
+
+        if (Input.GetMouseButtonDown(0) && countdownOver == true)
         {
             animator.SetTrigger("Shoot"); // Play gunshot animation
         }
