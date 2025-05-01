@@ -23,6 +23,7 @@ public class StartPromptTriggerMiniGame2 : MonoBehaviour
             // Enter code to start the game
             Debug.Log("Game Starting...");
             SceneManager.LoadScene("Mini_Game2");
+
         }
     }
 

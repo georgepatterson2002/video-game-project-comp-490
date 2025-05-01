@@ -1,12 +1,14 @@
 using UnityEngine;
 using TMPro;
 
+
 public class CurrencyHUD : MonoBehaviour
 {
     public static CurrencyHUD instance;
 
-    public int currencyAmount = 0; // Initial amount of currency
-    public TextMeshProUGUI currencyText; // Reference to the Text component
+
+    public TextMeshProUGUI currencyText;
+
 
     private void Awake()
     {
@@ -16,26 +18,18 @@ public class CurrencyHUD : MonoBehaviour
         }
     }
 
+
     void Start()
     {
         UpdateCurrencyDisplay();
     }
 
-    public void AddCurrency(int amount)
-    {
-        currencyAmount += amount;
-        UpdateCurrencyDisplay();
-    }
 
-    public void SubtractCurrency(int amount)
+    public void UpdateCurrencyDisplay()
     {
-        currencyAmount -= amount;
-        UpdateCurrencyDisplay();
+        if (currencyText != null && GameManager.instance != null)
+        {
+            currencyText.text = GameManager.instance.coins.ToString();
+        }
     }
-
-    private void UpdateCurrencyDisplay()
-    {
-        currencyText.text = currencyAmount.ToString();
-    }
-
 }

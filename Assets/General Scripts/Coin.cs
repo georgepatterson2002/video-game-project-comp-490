@@ -1,35 +1,42 @@
 using UnityEngine;
 
+
 public class Coin : MonoBehaviour
 {
-    public int coinValue = 1; // Value of the coin
-    public float hoverSpeed = 2f; // Speed of the hovering motion
-    public float hoverHeight = 0.2f; // Height of the hovering motion
+    public int coinValue = 1;
+    public float hoverSpeed = 2f;
+    public float hoverHeight = 0.2f;
+
 
     private Vector3 startPosition;
 
+
     private void Start()
     {
-        // Record the starting position of the coin
         startPosition = transform.position;
     }
 
+
     private void Update()
     {
-        // Make the coin hover up and down
         float newY = startPosition.y + Mathf.Sin(Time.time * hoverSpeed) * hoverHeight;
         transform.position = new Vector3(startPosition.x, newY, startPosition.z);
     }
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && GameManager.instance != null)
         {
-            CurrencyHUD currencyHUD = FindObjectOfType<CurrencyHUD>();
-            if (currencyHUD != null)
+            GameManager.instance.AddCoins(coinValue);
+            GameManager.instance.SaveCoins();        
+
+
+            if (CurrencyHUD.instance != null)
             {
-                currencyHUD.AddCurrency(coinValue);
+                CurrencyHUD.instance.UpdateCurrencyDisplay();
             }
+
 
             Destroy(gameObject);
         }
