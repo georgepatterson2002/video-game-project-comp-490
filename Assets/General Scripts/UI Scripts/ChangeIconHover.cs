@@ -86,7 +86,7 @@ public class ChangeIconHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void NewGame()
     {
         // Load the first scene (index 1).
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MainMap");
     }
 
     /// No Functionality Yet
@@ -98,7 +98,7 @@ public class ChangeIconHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
     /// No Functionality Yet
     public void Settings()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("Settings");
     }
 
     /// Quits the game.
@@ -113,5 +113,10 @@ public class ChangeIconHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         //Debug.Log("Quit button pressed. Exiting game.");
         SceneManager.LoadScene(0);
+    }
+     public void Login()
+    {
+        //Debug.Log("Quit button pressed. Exiting game.");
+        SceneManager.LoadScene("LoginScreen");
     }
 }

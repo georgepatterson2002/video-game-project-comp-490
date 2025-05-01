@@ -5,21 +5,23 @@ using UnityEngine.SceneManagement;
 public class GameScore : MonoBehaviour
 {
     public Text scoreText;
-    public Text livesText; // Added: UI text to display lives
-    
+    public Text livesText;
+
     private int score = 0;
-    private int lives = 3; // Added: starting lives
-    
+    private int lives = 3;
+
+    public int miniGameNumber = 1;
+
     void Start()
     {
-        UpdateScoreText(); // Initialize the score display
-        UpdateLivesText(); // Initialize the lives display
+        UpdateScoreText();
+        UpdateLivesText();
     }
 
     public void AddScore(int amount)
     {
         score += amount;
-        UpdateScoreText(); // Moved to a separate function for reuse
+        UpdateScoreText();
     }
 
     public void LoseLife(int amount)
@@ -29,10 +31,19 @@ public class GameScore : MonoBehaviour
 
         if (lives <= 0)
         {
-            SceneManager.LoadScene("YouLost");
-            Debug.Log("Game Over!");
+            PlayerPrefs.SetInt("FinalScore", score);
+            PlayerPrefs.SetInt("MiniGameNumber", miniGameNumber);
+            
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.SaveMiniGameScoreIfHigher(miniGameNumber, score);
 
-            // You can add game over logic here later
+
+                GameManager.instance.SaveCoins(); 
+            }
+
+            SceneManager.LoadScene("YouLost");
+            Debug.Log($"Game Over! Score: {score} | Mini-game: {miniGameNumber}");
         }
     }
 

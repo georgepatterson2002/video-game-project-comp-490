@@ -12,7 +12,6 @@ public class pauseChangeIconHover : MonoBehaviour, IPointerEnterHandler, IPointe
     // Toggle button sprite (the one that persists when toggled on)
     public Sprite toggledSprite;
 
-    // Flag to mark this button as a toggle. Set this to true in the Inspector if the button should act as a toggle.
     public bool isToggle = false;
 
     private Image imageComponent;
@@ -22,7 +21,6 @@ public class pauseChangeIconHover : MonoBehaviour, IPointerEnterHandler, IPointe
 
     void Awake()
     {
-        // Get the Image component attached to this button
         imageComponent = GetComponent<Image>();
         if (imageComponent == null)
         {
