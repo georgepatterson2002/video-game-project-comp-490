@@ -1248,10 +1248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreText: {fileID: 444243234}
-  coinText: {fileID: 308872621}
-  highScoreText: {fileID: 518585372}
-  statusText: {fileID: 0}
-  miniGameNumber: 2
+  coinText: {fileID: 0}
+  highScoreText: {fileID: 0}
   scoreCooldown: 0.75
 --- !u!1 &688560573
 GameObject:
@@ -1858,9 +1856,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 884876818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4fa7472b5c68704a9e15f5e4d534c5f, type: 3}
+  m_Script: {fileID: 11500000, guid: fa76bee18469045d09d7403ff2f64f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  scoreText: {fileID: 444243234}
+  coinText: {fileID: 308872621}
+  highScoreText: {fileID: 518585372}
+  scoreCooldown: 0.75
 --- !u!1 &1023844175
 GameObject:
   m_ObjectHideFlags: 0

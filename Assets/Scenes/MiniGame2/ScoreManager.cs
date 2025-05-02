@@ -1,34 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class ScoreManager : MonoBehaviour
-{
+public class ScoreManager : MonoBehaviour{
+    [Header("Score")]
     public int score = 0;
     public Text scoreText;
 
-    private float lastScoreTime = -Mathf.Infinity;
+    [Header("UI References")]
+    public Text coinText;
+    public Text highScoreText;
+
+    [Header("Settings")]
     public float scoreCooldown = 0.75f; // in seconds
 
-    void Start()
-    {
+    private float lastScoreTime = -Mathf.Infinity;
+
+    void Start(){
         UpdateScoreText();
+        UpdateCoinDisplay();
+        UpdateHighScoreDisplay();
     }
 
-    public void AddPoint()
-    {
-        // Only allow scoring if cooldown has passed
-        if (Time.time - lastScoreTime >= scoreCooldown)
-        {
-            score+= 10;
+    public void AddPoint(){
+        if (Time.time - lastScoreTime >= scoreCooldown){
+            score += 10;
             lastScoreTime = Time.time;
             UpdateScoreText();
+
+            GameManager.instance.AddCoins(10);
+            UpdateCoinDisplay(); 
         }
     }
 
-    void UpdateScoreText()
-    {
-        scoreText.text = "SCORE: " + score.ToString();
+    void UpdateScoreText(){
+        if (scoreText != null)
+            scoreText.text = "SCORE: " + score.ToString();
+    }
+
+    void UpdateCoinDisplay(){
+        if (coinText != null)
+            coinText.text = "Coins: " + GameManager.instance.coins;
+    }
+
+    void UpdateHighScoreDisplay(){
+        if (highScoreText != null)
+            highScoreText.text = "High Score: " + GameManager.instance.highScoreMiniGame2;
+    }
+
+    public void SaveAndExit(){
+        GameManager.instance.SaveMiniGameScoreIfHigher(2, score);
+        GameManager.instance.SaveCoins();
+        SceneManager.LoadScene("MainMap");
     }
 }
