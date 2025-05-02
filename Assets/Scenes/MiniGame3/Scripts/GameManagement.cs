@@ -21,17 +21,6 @@ public class GameManagement : MonoBehaviour
 
     public void GameOver()
     {
-        _gameOverCanvas.SetActive(true);
-        Time.timeScale = 0f;
-    }
-
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void QuitMiniGame()
-    {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("YouLost");
     }
 }
