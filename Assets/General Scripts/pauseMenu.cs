@@ -96,6 +96,30 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quitting game...");
         Application.Quit();
     }
+    public void Settings(){
+        Time.timeScale =1f;
+        isPaused = false;
+        if(pauseMenuUI != null){
+            pauseMenuUI.SetActive(false);
+        }
+         Destroy(gameObject);
+
+        SceneManager.LoadScene("Settings");
+    }
+
+    public void Logout(){
+    if (GameManager.instance != null)
+    {
+        GameManager.instance.accessToken = null;
+        GameManager.instance.userId = null;
+        GameManager.instance.coins = 0;
+        GameManager.instance.highScoreMiniGame1 = 0;
+        GameManager.instance.highScoreMiniGame2 = 0;
+        GameManager.instance.highScoreMiniGame3 = 0;
+    }
+    PlayerPrefs.DeleteAll();
+    SceneManager.LoadScene(0); 
+    }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

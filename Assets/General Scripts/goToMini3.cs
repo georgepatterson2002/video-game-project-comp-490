@@ -22,6 +22,7 @@ public class StartPromptTriggerMiniGame3 : MonoBehaviour
         {
             // Enter code to start the game
             Debug.Log("Game Starting...");
+            PlayerPrefs.SetInt("MiniGameNumber", 3);
             SceneManager.LoadScene("MiniGame3");
 
         }
