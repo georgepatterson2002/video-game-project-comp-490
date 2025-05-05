@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
         highScoreMiniGame2 = 0;
         highScoreMiniGame3 = 0;
         SceneManager.LoadScene("LoginScene");
+        Debug.LogError("request error");
     }
 
     private void UpdateCoinDisplay()

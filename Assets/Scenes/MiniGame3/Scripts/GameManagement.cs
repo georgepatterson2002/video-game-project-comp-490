@@ -18,18 +18,8 @@ public class GameManagement : MonoBehaviour
 
         Time.timeScale = 1f;
     }
-    public void GameOver(int finalScore)
+    public void GameOver()
     {
-        PlayerPrefs.SetInt("FinalScore", finalScore);
-        PlayerPrefs.SetInt("MiniGameNumber", 3);
-
-        if (GameManager.instance != null)
-        {
-            GameManager.instance.SaveMiniGameScoreIfHigher(3, finalScore);
-            GameManager.instance.SaveCoins();
-        }
-
         SceneManager.LoadScene("YouLost3");
-        Debug.Log($"[GameManagement] Game OverScore: {finalScore}, MiniGame: 3");
     }
 }
