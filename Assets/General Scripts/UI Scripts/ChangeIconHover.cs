@@ -82,17 +82,14 @@ public class ChangeIconHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     // ---------------- Button Action Methods ----------------
 
-    /// Loads the first scene.
-    public void NewGame()
+    public void OnResetButtonClicked()
     {
-        // Load the first scene (index 1).
         SceneManager.LoadScene("MainMap");
     }
-
-    /// No Functionality Yet
+    
     public void Continue()
     {
-        //Debug.Log("Continue button pressed. (Functionality not implemented yet)");
+        SceneManager.LoadScene("MainMap");
     }
 
     /// No Functionality Yet
@@ -107,12 +104,11 @@ public class ChangeIconHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         Debug.Log("Quit button pressed. Exiting game.");
         Application.Quit();
-    }
+    } 
 
     public void Return()
     {
-        //Debug.Log("Quit button pressed. Exiting game.");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
      public void Login()
     {
