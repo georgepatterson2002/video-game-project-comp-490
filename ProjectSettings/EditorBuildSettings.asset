@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MiniGame3/MiniGame3.unity
     guid: e1382d9ab8b074051ad1150201b61e6e
   - enabled: 1
+    path: Assets/Scenes/YouLost3.unity
+    guid: d1deef499d097844db1702022aa9ffda
+  - enabled: 1
     path: Assets/Scenes/YouLost.unity
     guid: 18cc69bf86f543a48b158df6233c2aee
   m_configObjects: {}

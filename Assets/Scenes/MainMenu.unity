@@ -208,7 +208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 196254199}
         m_TargetAssemblyTypeName: ChangeIconHover, Assembly-CSharp
-        m_MethodName: NewGame
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -297,6 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 388366237}
   - component: {fileID: 388366236}
+  - component: {fileID: 388366238}
   m_Layer: 0
   m_Name: CursorManager
   m_TagString: Untagged
@@ -333,6 +334,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &388366238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388366235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36fc29ba1dd7d1942983027a7296df2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accessToken: 
+  userId: 
+  coins: 0
+  highScoreMiniGame1: 0
+  highScoreMiniGame2: 0
+  highScoreMiniGame3: 0
+  coinDisplay: {fileID: 0}
 --- !u!1 &487420407
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,9 +540,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1972179233}
-        m_TargetAssemblyTypeName: ChangeIconHover, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 388366238}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Logout
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1094,8 +1114,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2001234102}
   - {fileID: 196254195}
+  - {fileID: 2001234102}
   - {fileID: 1521403210}
   - {fileID: 739204582}
   - {fileID: 900412753}
@@ -1392,7 +1412,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2001234106}
         m_TargetAssemblyTypeName: ChangeIconHover, Assembly-CSharp
-        m_MethodName: NewGame
+        m_MethodName: OnResetButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

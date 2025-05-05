@@ -21,6 +21,6 @@ public class GameManagement : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene("YouLost");
+        SceneManager.LoadScene("YouLost3");
     }
 }
