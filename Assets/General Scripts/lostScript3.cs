@@ -23,10 +23,6 @@ public class lostScript3 : MonoBehaviour
 
         if (GameManager.instance != null)
         {
-            GameManager.instance.SaveCoins();
-            GameManager.instance.SaveMiniGameScoreIfHigher(miniGameNumber, score);
-
-            // Display locally stored high score
             int highScore = 0;
             switch (miniGameNumber)
             {
@@ -48,7 +44,7 @@ public class lostScript3 : MonoBehaviour
     public void RetryGame()
     {
         SceneManager.LoadScene("MiniGame3");
-        Debug.LogWarning("Can't Load Screen");
+        Debug.Log("[lostScript3] Retrying MiniGame3...");
     }
 
     public void GoToMainMenu()
