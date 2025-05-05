@@ -36,7 +36,7 @@ public class FuelController : MonoBehaviour
 
         if (_currentFuelAmount <= 0f)
         {
-            GameManagement.instance.GameOver(); // add final score here 
+            GameManagement.instance.GameOver();
         }
     }
 
