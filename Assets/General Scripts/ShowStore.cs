@@ -9,7 +9,7 @@ public class ShowStore : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             isMenuOpen = !isMenuOpen;
             storeMenu.SetActive(isMenuOpen);
