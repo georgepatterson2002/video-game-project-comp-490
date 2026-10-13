@@ -70,3 +70,30 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Local configuration and generated files
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+node_modules/
+logs/
+Logs/
+*.log
+backups/
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.iml
+build/
+dist/
+output_images/
+data/
